@@ -1,0 +1,36 @@
+.data-sources-panel {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #d9d9d9;
+}
+
+.data-sources-panel h5 {
+    font-weight: 600;
+    margin-bottom: 16px !important;
+    font-size: 18px;
+}
+
+.data-source-item {
+    width: 100%;
+}
+
+.source-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.source-name {
+    font-size: 15px;
+    color: #333;
+}
+
+.data-source-item .ant-progress {
+    margin: 0;
+}
+
+.data-source-item .ant-progress-inner {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}

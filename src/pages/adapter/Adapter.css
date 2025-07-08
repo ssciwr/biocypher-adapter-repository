@@ -1,0 +1,159 @@
+/* Main page layout */
+.adapter-page {
+    min-height: 100vh;
+    background-color: #f5f5f7;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adapter-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 100px 20px; /* Added top padding, space for fixed bottom bar */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1200px) {
+    .adapter-content {
+        padding: 40px 40px 100px 40px; /* More margin on large screens */
+    }
+}
+
+/* Header section */
+.adapter-header {
+    margin-bottom: 24px;
+}
+
+.adapter-path {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.adapter-title {
+    margin: 8px 0 16px 0 !important;
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: -0.5px;
+}
+
+.adapter-tags {
+    margin-top: 12px;
+}
+
+.adapter-tags .ant-tag {
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 500;
+}
+
+/* Tab navigation */
+.adapter-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.adapter-tabs .ant-btn {
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    padding: 0 20px;
+}
+
+.adapter-tabs .ant-btn-primary {
+    background-color: #1c5aa0;
+    border-color: #1c5aa0;
+}
+
+.adapter-tabs .ant-btn-primary:hover {
+    background-color: #2470c7;
+    border-color: #2470c7;
+}
+
+.tab-emoji {
+    display: inline-block;
+    padding: 2px 6px;
+    background: white;
+    border-radius: 6px;
+    margin-right: 8px;
+}
+
+/* Main content card */
+.adapter-main-content {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #d9d9d9;
+    margin-bottom: 24px;
+}
+
+.adapter-main-content .ant-card-body {
+    padding: 32px;
+}
+
+/* Code blocks */
+.code-block {
+    background-color: #1e1e1e;
+    color: #e8e8e8;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+/* Stats card */
+.stats-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #d9d9d9;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.stat-item .ant-typography {
+    font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .adapter-content {
+        padding: 16px;
+    }
+
+    .adapter-title {
+        font-size: 24px;
+    }
+
+    .adapter-tabs .ant-btn {
+        font-size: 14px;
+        height: 36px;
+        padding: 0 16px;
+    }
+
+    .adapter-main-content .ant-card-body {
+        padding: 20px;
+    }
+}
+
+/* Usage content */
+.usage-content h4 {
+    margin-bottom: 16px !important;
+    font-weight: 600;
+}
