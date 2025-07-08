@@ -40,6 +40,18 @@
     color: inherit;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
 .logo-title {
     margin: 0 !important;
     font-size: 24px;
@@ -132,6 +144,10 @@
         gap: 16px;
     }
 
+    .logo-image {
+        height: 32px;
+    }
+    
     .logo-title {
         font-size: 20px;
     }

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Input, Button, Space, Typography } from 'antd'
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons'
 import SearchResults from './SearchResults'
+import biocypherLogo from '../assets/biocypher.png'
 import './Header.css'
 
 const { Title } = Typography
@@ -36,9 +37,12 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
                 <div className="header-content">
                     <div className="header-left">
                         <a href="/overview" className="logo-link">
-                            <Title level={3} className="logo-title">
-                                🧬 BioCypher Adapters
-                            </Title>
+                            <div className="logo-container">
+                                <img src={biocypherLogo} alt="BioCypher" className="logo-image" />
+                                <Title level={3} className="logo-title">
+                                    BioCypher Adapters
+                                </Title>
+                            </div>
                         </a>
                     </div>
                     
