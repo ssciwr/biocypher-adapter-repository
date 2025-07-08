@@ -11,6 +11,10 @@ interface Adapter {
     downloads?: number
     lastUpdated?: Date
     metadata?: any
+    status?: 'published' | 'draft' | 'pending'
+    submittedAt?: Date
+    croissantFile?: File
+    croissantUrl?: string
 }
 
 
@@ -102,6 +106,40 @@ export const getAllAdapters = async (): Promise<Adapter[]> => {
     await new Promise(resolve => setTimeout(resolve, 300))
     
     return mockAdapters
+}
+
+export const registerAdapter = async (adapterData: {
+    name: string
+    githubUrl: string
+    author: string
+    croissantFile?: File | null
+    croissantUrl?: string | null
+}): Promise<boolean> => {
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
+    // In production, this would save to MongoDB with draft status
+    const newAdapter: Adapter = {
+        id: `draft-${Date.now()}`,
+        name: adapterData.name,
+        description: 'Draft adapter pending review',
+        author: adapterData.author,
+        domain: 'unknown',
+        version: '0.0.1',
+        tags: ['draft'],
+        githubUrl: adapterData.githubUrl,
+        downloads: 0,
+        status: 'draft',
+        submittedAt: new Date(),
+        croissantFile: adapterData.croissantFile,
+        croissantUrl: adapterData.croissantUrl,
+        lastUpdated: new Date()
+    }
+    
+    // Add to mock data (in production, save to database)
+    mockAdapters.push(newAdapter)
+    
+    return true
 }
 
 

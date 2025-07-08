@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Input, Button, Space, Typography } from 'antd'
-import { SearchOutlined, MenuOutlined } from '@ant-design/icons'
+import { SearchOutlined, PlusOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom'
 import SearchResults from './SearchResults'
 import biocypherLogo from '../assets/biocypher.png'
 import './Header.css'
@@ -10,11 +11,13 @@ const { Search } = Input
 
 interface HeaderProps {
     onSearch?: (query: string) => void
+    showRegisterButton?: boolean
 }
 
-const Header: React.FC<HeaderProps> = ({ onSearch }) => {
+const Header: React.FC<HeaderProps> = ({ onSearch, showRegisterButton = false }) => {
     const [searchVisible, setSearchVisible] = useState(false)
     const [searchQuery, setSearchQuery] = useState('')
+    const navigate = useNavigate()
 
     const handleSearch = (value: string) => {
         setSearchQuery(value)
@@ -64,9 +67,22 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
 
                     <div className="header-right">
                         <Space>
-                            <Button type="text" icon={<MenuOutlined />}>
-                                Menu
-                            </Button>
+                            {showRegisterButton ? (
+                                <Button 
+                                    type="default"
+                                    icon={<PlusOutlined />}
+                                    onClick={() => navigate('/register')}
+                                >
+                                    Register your Adapter
+                                </Button>
+                            ) : (
+                                <Button 
+                                    type="default"
+                                    onClick={() => navigate('/overview')}
+                                >
+                                    View All
+                                </Button>
+                            )}
                         </Space>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ import { ConfigProvider } from 'antd'
 import Adapter from './pages/adapter/Adapter'
 import Overview from './pages/Overview'
 import Home from "./pages/Home.jsx";
+import Register from './pages/Register'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/overview" element={<Overview />} />
               <Route path="/adapter/:id" element={<Adapter />} />
+              <Route path="/register" element={<Register />} />
             </Routes>
           </Router>
       </ConfigProvider>

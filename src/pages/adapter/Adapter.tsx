@@ -1,20 +1,17 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Row, Col, Card, Button, Tag, Space, Typography, Divider } from 'antd'
-import { observer } from 'mobx-react-lite'
 import Header from '../../components/Header'
 import ModelCard from './components/ModelCard'
 import DataSourcesPanel from './components/DataSourcesPanel'
 import DuplicationPanel from './components/DuplicationPanel'
 import CookbookTutorials from './components/CookbookTutorials'
-import { useAdapterStore } from '../../stores/AdapterStore'
 import './Adapter.css'
 
 const { Text, Title } = Typography
 
-const Adapter = observer(() => {
+const Adapter = () => {
     const { id } = useParams<{ id: string }>()
-    const adapterStore = useAdapterStore()
     const [activeTab, setActiveTab] = useState('model')
 
     // Mock data - replace with actual API call
@@ -108,6 +105,6 @@ biocypher use ${id}`}
             </div>
         </div>
     )
-})
+}
 
 export default Adapter
