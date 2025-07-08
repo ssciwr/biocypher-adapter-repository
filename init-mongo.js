@@ -3,7 +3,6 @@ db = db.getSiblingDB('biocypher-adapters');
 
 // Create collections
 db.createCollection('adapters');
-db.createCollection('deduplications');
 
 // Insert sample adapter data
 db.adapters.insertMany([
@@ -100,45 +99,6 @@ db.adapters.insertMany([
     }
 ]);
 
-// Insert sample deduplication data
-db.deduplications.insertMany([
-    {
-        adapterA: 'example-adapter',
-        adapterB: 'genome-adapter',
-        duplicationRate: 45.3,
-        lastCalculated: new Date('2024-01-15'),
-        crowdsourced: true,
-        contributorCount: 12,
-        cliVersion: '1.2.0'
-    },
-    {
-        adapterA: 'genome-adapter',
-        adapterB: 'protein-adapter',
-        duplicationRate: 12.7,
-        lastCalculated: new Date('2024-01-10'),
-        crowdsourced: true,
-        contributorCount: 8,
-        cliVersion: '1.2.0'
-    },
-    {
-        adapterA: 'example-adapter',
-        adapterB: 'rna-seq-adapter',
-        duplicationRate: 23.4,
-        lastCalculated: new Date('2024-01-12'),
-        crowdsourced: true,
-        contributorCount: 15,
-        cliVersion: '1.1.9'
-    },
-    {
-        adapterA: 'protein-adapter',
-        adapterB: 'metabolomics-adapter',
-        duplicationRate: 8.9,
-        lastCalculated: new Date('2024-01-08'),
-        crowdsourced: true,
-        contributorCount: 5,
-        cliVersion: '1.2.0'
-    }
-]);
 
 // Create indexes for better search performance
 db.adapters.createIndex({ name: "text", description: "text", tags: "text", author: "text" });
@@ -146,7 +106,5 @@ db.adapters.createIndex({ domain: 1 });
 db.adapters.createIndex({ downloads: -1 });
 db.adapters.createIndex({ lastUpdated: -1 });
 
-db.deduplications.createIndex({ adapterA: 1, adapterB: 1 });
-db.deduplications.createIndex({ lastCalculated: -1 });
 
 print('MongoDB initialization completed successfully!');

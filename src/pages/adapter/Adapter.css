@@ -158,57 +158,6 @@
     border-radius: 4px;
 }
 
-/* Duplication panel specific */
-.selected-adapters {
-    margin-bottom: 12px;
-    min-height: 32px;
-}
-
-.adapter-tag {
-}
-
-.overlap-results {
-    padding-top: 8px;
-    border-top: 1px solid #f0f0f0;
-}
-
-.overlap-item {
-}
-
-.overlap-percentage {
-    font-size: 18px;
-    font-weight: 600;
-    color: #52c41a;
-}
-
-.cli-command-section {
-    margin-top: 8px;
-}
-
-.command-box {
-    margin-top: 8px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.command-box code {
-    color: #e8e8e8;
-    font-family: 'SF Mono', Monaco, monospace;
-    font-size: 13px;
-    flex: 1;
-    overflow-x: auto;
-}
-
-.copy-btn {
-    color: #e8e8e8;
-    margin-left: 8px;
-}
-
-.copy-btn:hover {
-    color: #40a9ff;
-}
 
 /* Model card specific */
 .model-card {

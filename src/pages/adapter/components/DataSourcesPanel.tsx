@@ -116,7 +116,7 @@ const DataSourcesPanel: React.FC<DataSourcesPanelProps> = ({ dataSources, github
                     <div key={index} className="data-source-item">
                         <div className="source-header flex justify-between align-center">
                             <Text className="source-name">{source.name}</Text>
-                            <Text strong>{source.percentage}%</Text>
+                            <Text strong>&nbsp;&nbsp;{source.percentage}%</Text>
                         </div>
                         <Progress
                             percent={source.percentage}

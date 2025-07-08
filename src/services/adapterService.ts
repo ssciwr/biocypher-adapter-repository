@@ -13,13 +13,6 @@ interface Adapter {
     metadata?: any
 }
 
-interface DeduplicationResult {
-    adapterA: string
-    adapterB: string
-    duplicationRate: number
-    lastCalculated: Date
-    crowdsourced: boolean
-}
 
 // Mock data for development - replace with actual MongoDB calls
 const mockAdapters: Adapter[] = [
@@ -80,23 +73,6 @@ const mockAdapters: Adapter[] = [
     }
 ]
 
-// Mock deduplication results
-const mockDeduplicationResults: DeduplicationResult[] = [
-    {
-        adapterA: 'example-adapter',
-        adapterB: 'genome-adapter',
-        duplicationRate: 45.3,
-        lastCalculated: new Date('2024-01-15'),
-        crowdsourced: true
-    },
-    {
-        adapterA: 'genome-adapter',
-        adapterB: 'protein-adapter',
-        duplicationRate: 12.7,
-        lastCalculated: new Date('2024-01-10'),
-        crowdsourced: true
-    }
-]
 
 // API functions - these would connect to MongoDB in production
 export const searchAdapters = async (query: string): Promise<Adapter[]> => {
@@ -128,38 +104,7 @@ export const getAllAdapters = async (): Promise<Adapter[]> => {
     return mockAdapters
 }
 
-export const getDeduplicationResult = async (adapterA: string, adapterB: string): Promise<DeduplicationResult | null> => {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 200))
-    
-    return mockDeduplicationResults.find(result => 
-        (result.adapterA === adapterA && result.adapterB === adapterB) ||
-        (result.adapterA === adapterB && result.adapterB === adapterA)
-    ) || null
-}
 
-export const submitDeduplicationResult = async (
-    adapterA: string, 
-    adapterB: string, 
-    duplicationRate: number
-): Promise<boolean> => {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 500))
-    
-    // In production, this would save to MongoDB
-    const newResult: DeduplicationResult = {
-        adapterA,
-        adapterB,
-        duplicationRate,
-        lastCalculated: new Date(),
-        crowdsourced: true
-    }
-    
-    // Add to mock data (in production, save to database)
-    mockDeduplicationResults.push(newResult)
-    
-    return true
-}
 
 // Server action functions that would run on the backend
 export const serverActions = {
@@ -174,18 +119,6 @@ export const serverActions = {
         return searchAdapters(query)
     },
     
-    getDeduplicationFromDB: async (adapterA: string, adapterB: string) => {
-        // This would query the deduplication collection
-        // const collection = db.collection('deduplications')
-        // return await collection.findOne({ 
-        //     $or: [
-        //         { adapterA, adapterB },
-        //         { adapterA: adapterB, adapterB: adapterA }
-        //     ]
-        // })
-        
-        return getDeduplicationResult(adapterA, adapterB)
-    }
 }
 
-export type { Adapter, DeduplicationResult }
+export type { Adapter }
