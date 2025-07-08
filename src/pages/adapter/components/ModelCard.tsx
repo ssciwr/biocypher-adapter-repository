@@ -1,5 +1,4 @@
 import { Typography, Space, Divider, Tag } from 'antd'
-import './ModelCard.css'
 
 const { Title, Text, Paragraph } = Typography
 
@@ -31,7 +30,7 @@ const ModelCard: React.FC<ModelCardProps> = ({ adapterId }) => {
         <div className="model-card">
             <Space direction="vertical" size={24} style={{ width: '100%' }}>
                 <div>
-                    <Title level={4}>🏷️ Model Card</Title>
+                    <Title level={4} className="section-header">🏷️ Model Card</Title>
                     <Space direction="vertical" size={16}>
                         <div>
                             <Text strong>Author: </Text>
@@ -45,14 +44,14 @@ const ModelCard: React.FC<ModelCardProps> = ({ adapterId }) => {
                 </div>
 
                 <div>
-                    <Title level={4}>📝 Description</Title>
+                    <Title level={4} className="section-header">📝 Description</Title>
                     <Paragraph className="model-description">
                         {modelInfo.description}
                     </Paragraph>
                 </div>
 
                 <div>
-                    <Title level={4}>✨ Key Features</Title>
+                    <Title level={4} className="section-header">✨ Key Features</Title>
                     <Space direction="vertical" size={8}>
                         {modelInfo.features.map((feature, index) => (
                             <div key={index} className="feature-item">
@@ -65,7 +64,7 @@ const ModelCard: React.FC<ModelCardProps> = ({ adapterId }) => {
                 <Divider />
 
                 <div>
-                    <Title level={4}>🔧 Requirements</Title>
+                    <Title level={4} className="section-header">🔧 Requirements</Title>
                     <Space wrap>
                         <Tag color="blue">BioCypher {modelInfo.requirements.biocypher}</Tag>
                         <Tag color="green">Python {modelInfo.requirements.python}</Tag>
@@ -74,8 +73,8 @@ const ModelCard: React.FC<ModelCardProps> = ({ adapterId }) => {
                 </div>
 
                 <div>
-                    <Title level={4}>🚀 Quick Example</Title>
-                    <pre className="code-example">
+                    <Title level={4} className="section-header">🚀 Quick Example</Title>
+                    <pre className="code-example code-block-base">
 {`from biocypher import BioCypher
 from biocypher_open_targets import OpenTargetsAdapter
 

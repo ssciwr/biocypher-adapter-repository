@@ -35,13 +35,13 @@ const Adapter = observer(() => {
     }
 
     return (
-        <div className="adapter-page">
+        <div className="adapter-page page-container">
             <Header />
 
-            <div className="adapter-content">
-                <Row gutter={[24, 24]}>
+            <div className="adapter-content content-container">
+                <Row gutter={[16, 24]}>
                     <Col xs={24} lg={16}>
-                        <Card className="adapter-main-content">
+                        <Card className="adapter-main-content card-base">
                             <div className="adapter-header-in-card">
                                 <Space direction="vertical" size={0}>
                                     <Text className="adapter-path">
@@ -77,8 +77,8 @@ const Adapter = observer(() => {
                                 )}
                                 {activeTab === 'usage' && (
                                     <div className="usage-content">
-                                        <Title level={4}>🚀 Quick Start</Title>
-                                        <pre className="code-block">
+                                        <Title level={4} className="section-header">🚀 Quick Start</Title>
+                                        <pre className="code-block code-block-base">
                             {`pip install biocypher
 biocypher use ${id}`}
                       </pre>

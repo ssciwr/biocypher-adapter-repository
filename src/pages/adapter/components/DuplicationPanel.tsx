@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite'
 import { useState, useEffect } from 'react'
 import { useAdapterStore } from '../../../stores/AdapterStore'
 import { getDeduplicationResult } from '../../../services/adapterService'
-import './DuplicationPanel.css'
 
 const { Title, Text } = Typography
 
@@ -63,13 +62,13 @@ const DuplicationPanel: React.FC<DuplicationPanelProps> = observer(({ adapterId 
     const selectedAdapters = adapterStore.selectedAdapters.filter(id => id !== adapterId)
 
     return (
-        <Card className="duplication-panel">
-            <Title level={5}>🔍 Duplication Analysis</Title>
+        <Card className="duplication-panel card-base">
+            <Title level={5} className="section-header">🔍 Duplication Analysis</Title>
 
             <Space direction="vertical" size={16} style={{ width: '100%' }}>
                 <div>
                     <Text type="secondary" className="section-label">Selected Adapters</Text>
-                    <div className="selected-adapters">
+                    <div className="selected-adapters flex flex-wrap gap-8 align-center">
                         {selectedAdapters.length === 0 ? (
                             <Text type="secondary">No other adapters selected</Text>
                         ) : (
@@ -78,7 +77,7 @@ const DuplicationPanel: React.FC<DuplicationPanelProps> = observer(({ adapterId 
                                     key={id}
                                     closable
                                     onClose={() => adapterStore.removeSelectedAdapter(id)}
-                                    className="adapter-tag"
+                                    className="adapter-tag tag-base"
                                 >
                                     {id}
                                 </Tag>
@@ -90,7 +89,7 @@ const DuplicationPanel: React.FC<DuplicationPanelProps> = observer(({ adapterId 
                             type="dashed"
                             icon={<PlusOutlined />}
                             onClick={handleAddAdapter}
-                            className="add-adapter-btn"
+                            className="add-adapter-btn btn-primary"
                         >
                             Adapter Comparison
                         </Button>
@@ -112,7 +111,7 @@ const DuplicationPanel: React.FC<DuplicationPanelProps> = observer(({ adapterId 
                             {Object.keys(cachedResults).length > 0 ? (
                                 <Space direction="vertical" size={8} style={{ width: '100%' }}>
                                     {Object.entries(cachedResults).map(([otherAdapterId, rate]) => (
-                                        <div key={otherAdapterId} className="overlap-item">
+                                        <div key={otherAdapterId} className="overlap-item list-item">
                                             <Text strong>vs {otherAdapterId}: </Text>
                                             <Text className="overlap-percentage">
                                                 {rate}%
@@ -126,7 +125,7 @@ const DuplicationPanel: React.FC<DuplicationPanelProps> = observer(({ adapterId 
                                     <Text type="secondary">
                                         No cached deduplication data available. Run this command to calculate:
                                     </Text>
-                                    <div className="command-box">
+                                    <div className="command-box code-block-base">
                                         <code>{adapterStore.generateCLICommand()}</code>
                                         <Tooltip title="Copy command">
                                             <Button

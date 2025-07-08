@@ -1,6 +1,5 @@
 import { Card, List, Typography, Tag, Space, Tooltip } from 'antd'
 import { BookOutlined, ClockCircleOutlined } from '@ant-design/icons'
-import './CookbookTutorials.css'
 
 const { Title, Text } = Typography
 
@@ -59,7 +58,7 @@ const CookbookTutorials: React.FC<CookbookTutorialsProps> = ({ adapterId }) => {
         <div className="cookbook-bottom-bar">
             <div className="cookbook-container">
                 <div className="cookbook-header">
-                    <Title level={5}>📚 Tutorials</Title>
+                    <Title level={5} className="section-header">📚 Tutorials</Title>
                 </div>
                 <div className="cookbook-items">
                     {tutorials.map(tutorial => (

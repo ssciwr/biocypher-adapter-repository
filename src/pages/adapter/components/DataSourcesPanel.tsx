@@ -1,7 +1,6 @@
 import { Card, Progress, Typography, Space, Spin, Tag, Button } from 'antd'
 import { useState, useEffect } from 'react'
 import { StarOutlined, ForkOutlined, LinkOutlined, RocketOutlined } from '@ant-design/icons'
-import './DataSourcesPanel.css'
 
 const { Title, Text, Link } = Typography
 
@@ -65,12 +64,12 @@ const DataSourcesPanel: React.FC<DataSourcesPanelProps> = ({ dataSources, github
     }
 
     return (
-        <Card className="data-sources-panel">
+        <Card className="data-sources-panel card-base">
             <Button 
                 type="primary" 
                 size="large" 
                 icon={<RocketOutlined />}
-                className="use-adapter-btn"
+                className="use-adapter-btn btn-primary btn-large btn-block"
                 block
             >
                 Use this Adapter
@@ -111,11 +110,11 @@ const DataSourcesPanel: React.FC<DataSourcesPanelProps> = ({ dataSources, github
                 </div>
             )}
             
-            <Title level={5}>📊 Data Sources</Title>
+            <Title level={5} className="section-header">📊 Data Sources</Title>
             <Space direction="vertical" size={12} style={{ width: '100%' }}>
                 {dataSources.map((source, index) => (
                     <div key={index} className="data-source-item">
-                        <div className="source-header">
+                        <div className="source-header flex justify-between align-center">
                             <Text className="source-name">{source.name}</Text>
                             <Text strong>{source.percentage}%</Text>
                         </div>
