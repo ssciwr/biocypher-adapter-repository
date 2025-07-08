@@ -25,10 +25,8 @@ const Adapter = observer(() => {
         lastUpdate: '3/6 win/minimum 2',
         githubUrl: 'https://github.com/biocypher/biocypher-adapter-example',
         dataSources: [
-            { name: 'Dataset 1', percentage: 36.7 },
-            { name: 'win', percentage: 33.9 },
-            { name: 'minimum', percentage: 22.2 },
-            { name: '2', percentage: 22.2 }
+            { name: 'Dataset 1', percentage: 6.7 },
+            { name: 'Dataset2', percentage: 3.9 },
         ],
         downloads: 222222,
         forks: 3968,
@@ -42,36 +40,34 @@ const Adapter = observer(() => {
             <div className="adapter-content">
                 <Row gutter={[24, 24]}>
                     <Col xs={24} lg={16}>
-                        <div className="adapter-header">
-                            <Space direction="vertical" size={0}>
-                                <Text className="adapter-path">
-                                    <a href="/overview" style={{ color: '#666', textDecoration: 'none' }}>
-                                        🏠 biocypher
-                                    </a>
-                                    {' / ' + id}
-                                </Text>
-                                <Title level={2} className="adapter-title">
-                                    {adapterData.name}
-                                </Title>
-                            </Space>
-                        </div>
-
                         <Card className="adapter-main-content">
+                            <div className="adapter-header-in-card">
+                                <Space direction="vertical" size={0}>
+                                    <Text className="adapter-path">
+                                        <a href="/overview" style={{ color: '#666', textDecoration: 'none' }}>
+                                            🏠 biocypher
+                                        </a>
+                                        {' / ' + id}
+                                    </Text>
+                                    <Title level={2} className="adapter-title">
+                                        {adapterData.name}
+                                    </Title>
+                                </Space>
+                            </div>
+
                             <div className="adapter-tabs">
-                                <Button
-                                    type={activeTab === 'model' ? 'primary' : 'text'}
-                                    onClick={() => setActiveTab('model')}
-                                    className="tab-button"
+                                <div className="tab-item" 
+                                     onClick={() => setActiveTab('model')}
+                                     className={`tab-item ${activeTab === 'model' ? 'active' : ''}`}
                                 >
                                     <span className="tab-emoji">🧬</span> Model
-                                </Button>
-                                <Button
-                                    type={activeTab === 'usage' ? 'primary' : 'text'}
-                                    onClick={() => setActiveTab('usage')}
-                                    className="tab-button"
+                                </div>
+                                <div className="tab-item" 
+                                     onClick={() => setActiveTab('usage')}
+                                     className={`tab-item ${activeTab === 'usage' ? 'active' : ''}`}
                                 >
                                     <span className="tab-emoji">📚</span> Usage
-                                </Button>
+                                </div>
                             </div>
 
                             <div className="adapter-tab-content">

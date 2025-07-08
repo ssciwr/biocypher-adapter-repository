@@ -23,9 +23,11 @@
     }
 }
 
-/* Header section */
-.adapter-header {
+/* Header section inside card */
+.adapter-header-in-card {
     margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .adapter-path {
@@ -35,7 +37,7 @@
 }
 
 .adapter-title {
-    margin: 8px 0 16px 0 !important;
+    margin: 8px 0 0 0 !important;
     font-weight: 600;
     font-size: 32px;
     letter-spacing: -0.5px;
@@ -56,28 +58,44 @@
 /* Tab navigation */
 .adapter-tabs {
     display: flex;
-    gap: 8px;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #f0f0f0;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fafafa;
+    border-radius: 12px 12px 0 0;
+    padding: 4px 4px 0 4px;
+    margin: 0 -32px 0 -32px;
 }
 
-.adapter-tabs .ant-btn {
-    border-radius: 8px;
+.tab-item {
+    flex: 1;
+    padding: 12px 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
     font-size: 16px;
     font-weight: 500;
-    height: 40px;
-    padding: 0 20px;
+    transition: all 0.2s ease;
+    background: transparent;
+    color: #666;
+    border: 1px solid transparent;
+    margin-bottom: -1px;
 }
 
-.adapter-tabs .ant-btn-primary {
-    background-color: #1c5aa0;
-    border-color: #1c5aa0;
+.tab-item:hover {
+    background: #f0f0f0;
+    color: #333;
 }
 
-.adapter-tabs .ant-btn-primary:hover {
-    background-color: #2470c7;
-    border-color: #2470c7;
+.tab-item.active {
+    background: #fff;
+    color: #1c5aa0;
+    border: 1px solid #e8e8e8;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    z-index: 1;
+    position: relative;
 }
 
 .tab-emoji {
@@ -86,6 +104,11 @@
     background: white;
     border-radius: 6px;
     margin-right: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.adapter-tab-content {
+    padding-top: 24px;
 }
 
 /* Main content card */

@@ -58,52 +58,60 @@
     width: 100%;
 }
 
+/* Reset and fix the search component */
 .header-search .ant-input-search {
-    display: flex;
-    align-items: stretch;
-}
-
-.header-search .ant-input-group {
-    display: flex !important;
-    align-items: stretch !important;
     height: 48px;
 }
 
-.header-search .ant-input {
-    border-radius: 12px 0 0 12px !important;
-    font-size: 16px;
-    padding: 12px 16px;
-    border: 1px solid #d9d9d9;
+.header-search .ant-input-search-enter-button .ant-input-group {
+    display: flex !important;
     height: 48px !important;
-    line-height: 1.5;
-    border-right: none !important;
-    box-sizing: border-box;
 }
 
-.header-search .ant-input:focus,
-.header-search .ant-input:hover {
-    border-color: #52c41a;
-    box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
-    border-right: none !important;
+.header-search .ant-input-search-enter-button .ant-input-group .ant-input {
+    border-radius: 12px 0 0 12px !important;
+    border-right: 0 !important;
+    height: 48px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    padding: 12px 16px !important;
+    border: 1px solid #d9d9d9 !important;
 }
 
-.header-search .ant-input-search-button {
+.header-search .ant-input-search-enter-button .ant-input-group .ant-input:focus,
+.header-search .ant-input-search-enter-button .ant-input-group .ant-input:hover {
+    border-color: #52c41a !important;
+    border-right: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.header-search .ant-input-search-enter-button .ant-input-group .ant-input-group-addon {
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.header-search .ant-input-search-enter-button .ant-input-group .ant-input-group-addon .ant-btn {
     border-radius: 0 12px 12px 0 !important;
     background: #52c41a !important;
-    border-color: #52c41a !important;
+    border: 1px solid #52c41a !important;
     height: 48px !important;
+    min-width: 48px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    min-width: 48px;
-    border-left: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 16px !important;
 }
 
-.header-search .ant-input-search-button:hover {
+.header-search .ant-input-search-enter-button .ant-input-group .ant-input-group-addon .ant-btn:hover,
+.header-search .ant-input-search-enter-button .ant-input-group .ant-input-group-addon .ant-btn:focus {
     background: #73d13d !important;
     border-color: #73d13d !important;
+}
+
+.header-search .ant-input-search-enter-button .ant-input-group .ant-input-group-addon .ant-btn .anticon {
+    font-size: 16px;
+    color: white;
 }
 
 .header-right {
@@ -123,24 +131,31 @@
         padding: 0 16px;
         gap: 16px;
     }
-    
+
     .logo-title {
         font-size: 20px;
     }
-    
+
     .header-center {
         margin: 0 16px;
     }
-    
-    .header-search .ant-input {
-        font-size: 14px;
-        padding: 10px 12px;
-    }
-    
-    .header-search .ant-btn {
+
+    .header-search .ant-input-search {
         height: 40px;
     }
-    
+
+    .header-search .ant-input-search-enter-button .ant-input-group .ant-input {
+        height: 40px !important;
+        font-size: 14px !important;
+        padding: 8px 12px !important;
+    }
+
+    .header-search .ant-input-search-enter-button .ant-input-group .ant-input-group-addon .ant-btn {
+        height: 40px !important;
+        min-width: 40px !important;
+        padding: 0 12px !important;
+    }
+
     .header-right .ant-btn {
         padding: 0 12px;
         font-size: 14px;
@@ -153,12 +168,12 @@
         align-items: stretch;
         gap: 12px;
     }
-    
+
     .header-center {
         margin: 0;
         order: 3;
     }
-    
+
     .header-right {
         order: 2;
         text-align: center;
