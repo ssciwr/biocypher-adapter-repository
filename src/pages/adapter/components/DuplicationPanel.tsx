@@ -61,11 +61,24 @@ const DuplicationPanel: React.FC<DuplicationPanelProps> = observer(({ adapterId 
 
     const selectedAdapters = adapterStore.selectedAdapters.filter(id => id !== adapterId)
 
+    /* As commented below, this panel only has use with a developed CLI/API to calculate the duplication/coverage/
+    data compatibility of adapters, and it would be a stretch to save output of crowd-soruced researchers on to the
+    central data we store in any case. Read here for more, if this is implemented, it makes more sense to implement
+    this panel: https://github.com/biocypher/biocypher/discussions/451#discussioncomment-13588587
+     */
+    return(<div></div>)
+
     return (
         <Card className="duplication-panel card-base">
             <Title level={5} className="section-header">🔍 Duplication Analysis</Title>
 
             <Space direction="vertical" size={16} style={{ width: '100%' }}>
+                <div>
+                    Pipeline namespace compatibility {/* This would use the CLI API (that does not exist
+                    discussed here: https://github.com/biocypher/biocypher/discussions/451#discussioncomment-13588587
+                    It's pointless to have this until that gets implemented, so this is hidden for now.
+                    */}
+                </div>
                 <div>
                     <Text type="secondary" className="section-label">Selected Adapters</Text>
                     <div className="selected-adapters flex flex-wrap gap-8 align-center">
