@@ -58,44 +58,33 @@
 /* Tab navigation */
 .adapter-tabs {
     display: flex;
-    gap: 0;
-    margin-bottom: 0;
+    gap: 32px;
+    margin-bottom: 24px;
     border-bottom: 1px solid #e8e8e8;
-    background: #fafafa;
-    border-radius: 12px 12px 0 0;
-    padding: 4px 4px 0 4px;
-    margin: 0 -32px 0 -32px;
+    padding-bottom: 0;
 }
 
 .tab-item {
-    flex: 1;
-    padding: 12px 20px;
-    text-align: center;
+    padding: 12px 0;
     cursor: pointer;
-    border-radius: 8px 8px 0 0;
     font-size: 16px;
     font-weight: 500;
     transition: all 0.2s ease;
     background: transparent;
     color: #666;
-    border: 1px solid transparent;
-    margin-bottom: -1px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    position: relative;
 }
 
 .tab-item:hover {
-    background: #f0f0f0;
-    color: #333;
+    color: #1c5aa0;
 }
 
 .tab-item.active {
-    background: #fff;
     color: #1c5aa0;
-    border: 1px solid #e8e8e8;
-    border-bottom: 1px solid #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     font-weight: 600;
-    z-index: 1;
-    position: relative;
+    border-bottom: 2px solid #1c5aa0;
 }
 
 .tab-emoji {
@@ -109,6 +98,7 @@
 
 .adapter-tab-content {
     padding-top: 24px;
+    padding-bottom: 100px;
 }
 
 /* Main content card */
@@ -179,4 +169,8 @@
 .usage-content h4 {
     margin-bottom: 16px !important;
     font-weight: 600;
+}
+
+h5 {
+    margin-top: 0px; /* user style sheet defaults often have 30px */
 }

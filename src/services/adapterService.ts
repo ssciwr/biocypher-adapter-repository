@@ -24,15 +24,15 @@ interface DeduplicationResult {
 // Mock data for development - replace with actual MongoDB calls
 const mockAdapters: Adapter[] = [
     {
-        id: 'omnipath-secondary-adapter',
-        name: 'OmniPath Secondary Adapter',
-        description: 'BioCypher adapter for OmniPath secondary datasets including enzyme-substrate relationships, protein complexes, and regulatory interactions.',
+        id: 'open-targets',
+        name: 'Open Targets Adapter',
+        description: 'BioCypher adapter for Open Targets database providing comprehensive target-disease associations, drug information, and evidence data.',
         author: 'BioCypher Team',
-        domain: 'proteomics',
-        version: '1.0.0',
-        tags: ['omnipath', 'proteomics', 'interactions', 'enzyme-substrate'],
-        githubUrl: 'https://github.com/biocypher/omnipath-secondary-adapter',
-        downloads: 15420
+        domain: 'genetics',
+        version: '1.2.0',
+        tags: ['open-targets', 'drug-discovery', 'genetics', 'target-disease'],
+        githubUrl: 'https://github.com/biocypher/open-targets',
+        downloads: 28500
     },
     {
         id: 'example-adapter',

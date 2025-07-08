@@ -1,6 +1,6 @@
-import { Card, Progress, Typography, Space, Spin, Tag } from 'antd'
+import { Card, Progress, Typography, Space, Spin, Tag, Button } from 'antd'
 import { useState, useEffect } from 'react'
-import { StarOutlined, ForkOutlined, LinkOutlined } from '@ant-design/icons'
+import { StarOutlined, ForkOutlined, LinkOutlined, RocketOutlined } from '@ant-design/icons'
 import './DataSourcesPanel.css'
 
 const { Title, Text, Link } = Typography
@@ -66,6 +66,16 @@ const DataSourcesPanel: React.FC<DataSourcesPanelProps> = ({ dataSources, github
 
     return (
         <Card className="data-sources-panel">
+            <Button 
+                type="primary" 
+                size="large" 
+                icon={<RocketOutlined />}
+                className="use-adapter-btn"
+                block
+            >
+                Use this Adapter
+            </Button>
+            
             {githubUrl && (
                 <div className="github-section" style={{ marginBottom: '16px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>

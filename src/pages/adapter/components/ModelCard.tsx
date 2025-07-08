@@ -11,18 +11,19 @@ const ModelCard: React.FC<ModelCardProps> = ({ adapterId }) => {
     // Mock data - replace with actual API call
     const modelInfo = {
         author: 'BioCypher Team',
-        domain: 'genomics',
-        description: 'This adapter provides seamless integration with ExampleDB, enabling efficient data transformation and loading for bioinformatics workflows.',
+        domain: 'genetics',
+        description: 'This adapter provides seamless integration with the Open Targets database, enabling comprehensive access to target-disease associations, drug information, and evidence data for drug discovery and genomics research.',
         features: [
-            'High-performance batch processing',
-            'Automatic schema validation',
+            'Target-disease association data',
+            'Comprehensive drug information',
+            'Evidence-based therapeutic insights',
             'Support for multiple data formats',
-            'Built-in data quality checks'
+            'Built-in data validation'
         ],
         requirements: {
             biocypher: '>=0.5.0',
             python: '>=3.8',
-            memory: '4GB recommended'
+            memory: '8GB recommended'
         }
     }
 
@@ -76,13 +77,13 @@ const ModelCard: React.FC<ModelCardProps> = ({ adapterId }) => {
                     <Title level={4}>🚀 Quick Example</Title>
                     <pre className="code-example">
 {`from biocypher import BioCypher
-from ${adapterId} import ExampleAdapter
+from biocypher_open_targets import OpenTargetsAdapter
 
 # Initialize BioCypher
 bc = BioCypher()
 
-# Load adapter
-adapter = ExampleAdapter()
+# Load Open Targets adapter
+adapter = OpenTargetsAdapter()
 bc.add_adapter(adapter)
 
 # Run pipeline

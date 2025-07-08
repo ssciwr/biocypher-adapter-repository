@@ -19,16 +19,17 @@ const Adapter = observer(() => {
 
     // Mock data - replace with actual API call
     const adapterData = {
-        name: 'ExampleAdapter',
-        version: '2.2.2',
+        name: 'OpenTargetsAdapter',
+        version: '1.2.0',
         license: 'MIT',
-        lastUpdate: '3/6 win/minimum 2',
-        githubUrl: 'https://github.com/biocypher/biocypher-adapter-example',
+        lastUpdate: 'Updated 2 weeks ago',
+        githubUrl: 'https://github.com/biocypher/open-targets',
         dataSources: [
-            { name: 'Dataset 1', percentage: 6.7 },
-            { name: 'Dataset2', percentage: 3.9 },
+            { name: 'Target-Disease Associations', percentage: 45.2 },
+            { name: 'Drug Information', percentage: 28.7 },
+            { name: 'Evidence Data', percentage: 26.1 },
         ],
-        downloads: 222222,
+        downloads: 28500,
         forks: 3968,
         adapters: 2222
     }
