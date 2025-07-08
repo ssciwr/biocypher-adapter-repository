@@ -21,27 +21,27 @@ const CookbookTutorials: React.FC<CookbookTutorialsProps> = ({ adapterId }) => {
     const tutorials: Tutorial[] = [
         {
             id: '1',
-            title: 'Getting Started with ExampleAdapter',
-            description: 'Learn the basics of setting up and running your first pipeline with this adapter.',
-            difficulty: 'beginner',
-            duration: '15 min',
-            tags: ['setup', 'basics']
+            title: 'BioCypher Adapters',
+            description: 'Learn how to create adapters that connect to BioCypher core and provide data from specific resources.',
+            difficulty: 'intermediate',
+            duration: '30 min',
+            tags: ['adapters', 'development']
         },
         {
             id: '2',
-            title: 'Advanced Data Transformation',
-            description: 'Deep dive into complex data transformation scenarios and optimization techniques.',
-            difficulty: 'advanced',
-            duration: '45 min',
-            tags: ['optimization', 'performance']
+            title: 'Handling Ontologies',
+            description: 'Understand how BioCypher uses ontologies to ground knowledge graphs in biology and customize them.',
+            difficulty: 'intermediate',
+            duration: '25 min',
+            tags: ['ontologies', 'biolink']
         },
         {
             id: '3',
-            title: 'Integration with BioCypher Workflows',
-            description: 'Best practices for integrating this adapter into existing BioCypher pipelines.',
-            difficulty: 'intermediate',
-            duration: '30 min',
-            tags: ['integration', 'workflows']
+            title: 'BioCypher and Pandas',
+            description: 'Comprehensive guide to using BioCypher with Pandas for data processing and knowledge graph creation.',
+            difficulty: 'beginner',
+            duration: '20 min',
+            tags: ['pandas', 'data-processing']
         }
     ]
 
@@ -81,7 +81,17 @@ const CookbookTutorials: React.FC<CookbookTutorialsProps> = ({ adapterId }) => {
                             }
                             placement="top"
                         >
-                            <div className="cookbook-item">
+                            <div 
+                                className="cookbook-item" 
+                                onClick={() => {
+                                    const urls = [
+                                        'https://biocypher.org/BioCypher/learn/tutorials/tutorial003_adapters/',
+                                        'https://biocypher.org/BioCypher/learn/tutorials/tutorial002_handling_ontologies/',
+                                        'https://biocypher.org/BioCypher/learn/tutorials/pandas_tutorial/'
+                                    ]
+                                    window.open(urls[parseInt(tutorial.id) - 1], '_blank')
+                                }}
+                            >
                                 <div className="cookbook-item-title">{tutorial.title}</div>
                                 <div className="cookbook-item-meta">
                                     <Tag color={getDifficultyColor(tutorial.difficulty)} size="small">
