@@ -3,13 +3,13 @@
 ![image](https://github.com/user-attachments/assets/1f786fce-eb12-479c-89a4-f308db4e2c24)
 
 # How to install/build
-`npm i`
+`pnpm install`
 
 # How to run
-`npm run dev`
+`pnpm dev` or `pnpm start`
 
 # How to deploy
-`npm run build`
+`pnpm build`
 
 Then use the build directory output.
 

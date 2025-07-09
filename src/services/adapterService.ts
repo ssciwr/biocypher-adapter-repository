@@ -1,4 +1,15 @@
 // Adapter service for MongoDB operations
+interface AdapterDetails {
+    componentType: string
+    adapterGranularity: string
+    adapterInputFormat: string
+    resourceType: string
+    resourceUrl: string
+    adapterUrl: string
+    dataType: string
+    assignee?: string
+}
+
 interface Adapter {
     id: string
     name: string
@@ -15,8 +26,21 @@ interface Adapter {
     submittedAt?: Date
     croissantFile?: File
     croissantUrl?: string
+    details?: AdapterDetails
 }
 
+
+// Available options for adapter details
+export const ADAPTER_OPTIONS = {
+    componentType: ['Input'],
+    adapterGranularity: ['Primary', 'Secondary'],
+    adapterInputFormat: ['Flat file', 'API', 'Parquet', 'not mentioned'],
+    resourceType: ['Database'],
+    resourceUrl: ['missing', 'Y', 'broken', 'not created'],
+    adapterUrl: ['alinks/blob/main/me', 'broken', 'Y', 'not created'],
+    dataType: ['Metabolomics', 'Proteomics', 'Gene Expression', 'Genetics', 'Clinical', 'Not mentioned', 'Molecular interaction'],
+    assignees: ['EliasParr', 'shengchd', 'mingjiecn', 'ottojolanki', 'slobentanzer', 'kpto', 'bnymnsen', 'pedrohr', 'vincentvialard', 'ecarrenolozano', 'AndiMajore', 'Maiykol']
+}
 
 // Mock data for development - replace with actual MongoDB calls
 const mockAdapters: Adapter[] = [
@@ -29,7 +53,17 @@ const mockAdapters: Adapter[] = [
         version: '1.2.0',
         tags: ['open-targets', 'drug-discovery', 'genetics', 'target-disease'],
         githubUrl: 'https://github.com/biocypher/open-targets',
-        downloads: 28500
+        downloads: 28500,
+        details: {
+            componentType: 'Input',
+            adapterGranularity: 'Primary',
+            adapterInputFormat: 'API',
+            resourceType: 'Database',
+            resourceUrl: 'Y',
+            adapterUrl: 'https://github.com/biocypher/open-targets',
+            dataType: 'Genetics',
+            assignee: 'slobentanzer'
+        }
     },
     {
         id: 'example-adapter',
@@ -40,7 +74,17 @@ const mockAdapters: Adapter[] = [
         version: '2.2.2',
         tags: ['database', 'genomics', 'data-transformation'],
         githubUrl: 'https://github.com/biocypher/biocypher-adapter-example',
-        downloads: 222222
+        downloads: 222222,
+        details: {
+            componentType: 'Input',
+            adapterGranularity: 'Secondary',
+            adapterInputFormat: 'Flat file',
+            resourceType: 'Database',
+            resourceUrl: 'missing',
+            adapterUrl: 'https://github.com/biocypher/biocypher-adapter-example',
+            dataType: 'Gene Expression',
+            assignee: 'EliasParr'
+        }
     },
     {
         id: 'genome-adapter',
@@ -51,7 +95,17 @@ const mockAdapters: Adapter[] = [
         version: '1.5.0',
         tags: ['genome', 'fasta', 'reference'],
         githubUrl: 'https://github.com/biocypher/genome-adapter',
-        downloads: 145000
+        downloads: 145000,
+        details: {
+            componentType: 'Input',
+            adapterGranularity: 'Primary',
+            adapterInputFormat: 'Parquet',
+            resourceType: 'Database',
+            resourceUrl: 'Y',
+            adapterUrl: 'https://github.com/biocypher/genome-adapter',
+            dataType: 'Genetics',
+            assignee: 'mingjiecn'
+        }
     },
     {
         id: 'protein-adapter',
@@ -62,7 +116,17 @@ const mockAdapters: Adapter[] = [
         version: '3.1.1',
         tags: ['protein', 'structure', 'pdb'],
         githubUrl: 'https://github.com/biocypher/protein-adapter',
-        downloads: 98500
+        downloads: 98500,
+        details: {
+            componentType: 'Input',
+            adapterGranularity: 'Primary',
+            adapterInputFormat: 'API',
+            resourceType: 'Database',
+            resourceUrl: 'Y',
+            adapterUrl: 'https://github.com/biocypher/protein-adapter',
+            dataType: 'Proteomics',
+            assignee: 'ottojolanki'
+        }
     },
     {
         id: 'rna-seq-adapter',
@@ -73,7 +137,17 @@ const mockAdapters: Adapter[] = [
         version: '2.0.3',
         tags: ['rna-seq', 'expression', 'differential'],
         githubUrl: 'https://github.com/biocypher/rnaseq-adapter',
-        downloads: 76300
+        downloads: 76300,
+        details: {
+            componentType: 'Input',
+            adapterGranularity: 'Secondary',
+            adapterInputFormat: 'Flat file',
+            resourceType: 'Database',
+            resourceUrl: 'broken',
+            adapterUrl: 'https://github.com/biocypher/rnaseq-adapter',
+            dataType: 'Gene Expression',
+            assignee: 'shengchd'
+        }
     }
 ]
 
@@ -106,6 +180,14 @@ export const getAllAdapters = async (): Promise<Adapter[]> => {
     await new Promise(resolve => setTimeout(resolve, 300))
     
     return mockAdapters
+}
+
+export const getAdapterDetails = async (adapterId: string): Promise<AdapterDetails | null> => {
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 300))
+    
+    const adapter = mockAdapters.find(a => a.id === adapterId)
+    return adapter?.details || null
 }
 
 export const registerAdapter = async (adapterData: {
@@ -159,4 +241,4 @@ export const serverActions = {
     
 }
 
-export type { Adapter }
+export type { Adapter, AdapterDetails }
