@@ -54,13 +54,13 @@ const Adapter = () => {
                             </div>
 
                             <div className="adapter-tabs">
-                                <div className="tab-item" 
+                                <div className="tab-item"
                                      onClick={() => setActiveTab('model')}
                                      className={`tab-item ${activeTab === 'model' ? 'active' : ''}`}
                                 >
                                     <span className="tab-emoji">🧬</span> Model
                                 </div>
-                                <div className="tab-item" 
+                                <div className="tab-item"
                                      onClick={() => setActiveTab('usage')}
                                      className={`tab-item ${activeTab === 'usage' ? 'active' : ''}`}
                                 >
@@ -90,8 +90,8 @@ biocypher use ${id}`}
 
                     <Col xs={24} lg={8}>
                         <Space direction="vertical" size={16} style={{ width: '100%' }}>
-                            <DataSourcesPanel 
-                                dataSources={adapterData.dataSources} 
+                            <DataSourcesPanel
+                                dataSources={adapterData.dataSources}
                                 githubUrl={adapterData.githubUrl}
                                 version={adapterData.version}
                                 license={adapterData.license}

@@ -81,8 +81,8 @@ const CookbookTutorials: React.FC<CookbookTutorialsProps> = ({ adapterId }) => {
                             }
                             placement="top"
                         >
-                            <div 
-                                className="cookbook-item" 
+                            <div
+                                className="cookbook-item"
                                 onClick={() => {
                                     const urls = [
                                         'https://biocypher.org/BioCypher/learn/tutorials/tutorial003_adapters/',

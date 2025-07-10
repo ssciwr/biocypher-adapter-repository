@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch, showRegisterButton = false })
                             </div>
                         </a>
                     </div>
-                    
+
                     <div className="header-center">
                         <Search
                             placeholder="Search adapters..."
@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch, showRegisterButton = false })
                     <div className="header-right">
                         <Space>
                             {showRegisterButton ? (
-                                <Button 
+                                <Button
                                     type="default"
                                     icon={<PlusOutlined />}
                                     onClick={() => navigate('/register')}
@@ -76,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch, showRegisterButton = false })
                                     Register your Adapter
                                 </Button>
                             ) : (
-                                <Button 
+                                <Button
                                     type="default"
                                     onClick={() => navigate('/overview')}
                                 >
@@ -89,8 +89,8 @@ const Header: React.FC<HeaderProps> = ({ onSearch, showRegisterButton = false })
             </header>
 
             {searchVisible && (
-                <SearchResults 
-                    query={searchQuery} 
+                <SearchResults
+                    query={searchQuery}
                     onClose={handleCloseSearch}
                 />
             )}

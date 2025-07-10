@@ -42,7 +42,7 @@ const DataSourcesPanel: React.FC<DataSourcesPanelProps> = ({ dataSources, github
 
             const [, owner, repo] = match
             const apiUrl = `https://api.github.com/repos/${owner}/${repo}`
-            
+
             const response = await fetch(apiUrl)
             if (response.ok) {
                 const data = await response.json()
@@ -65,16 +65,16 @@ const DataSourcesPanel: React.FC<DataSourcesPanelProps> = ({ dataSources, github
 
     return (
         <Card className="data-sources-panel card-base">
-            <Button 
-                type="primary" 
-                size="large" 
+            <Button
+                type="primary"
+                size="large"
                 icon={<RocketOutlined />}
                 className="use-adapter-btn btn-primary btn-large btn-block"
                 block
             >
                 Use this Adapter
             </Button>
-            
+
             {githubUrl && (
                 <div className="github-section" style={{ marginBottom: '16px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
@@ -99,7 +99,7 @@ const DataSourcesPanel: React.FC<DataSourcesPanelProps> = ({ dataSources, github
                     )}
                 </div>
             )}
-            
+
             {(version || license || lastUpdate) && (
                 <div style={{ marginBottom: '16px', paddingBottom: '12px', borderBottom: '1px solid #f0f0f0' }}>
                     <Space wrap>
@@ -109,7 +109,7 @@ const DataSourcesPanel: React.FC<DataSourcesPanelProps> = ({ dataSources, github
                     </Space>
                 </div>
             )}
-            
+
             <Title level={5} className="section-header">📊 Data Sources</Title>
             <Space direction="vertical" size={12} style={{ width: '100%' }}>
                 {dataSources.map((source, index) => (

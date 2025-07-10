@@ -58,7 +58,7 @@ const ModelCard: React.FC<ModelCardProps> = ({ adapterId }) => {
                 <div>
                     <Title level={4} className="section-header">📋 Model Overview</Title>
                     <Text className="model-description">
-                        This adapter provides seamless integration with {adapterId} database, enabling efficient data transformation and loading for bioinformatics workflows. 
+                        This adapter provides seamless integration with {adapterId} database, enabling efficient data transformation and loading for bioinformatics workflows.
                         The adapter supports multiple data formats and provides comprehensive mapping to BioCypher's knowledge graph structure.
                     </Text>
                 </div>

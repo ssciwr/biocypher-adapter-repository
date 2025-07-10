@@ -29,8 +29,8 @@ function Home() {
 
   return (
     <>
-      <div style={{ 
-        minHeight: '100vh', 
+      <div style={{
+        minHeight: '100vh',
         background: '#f5f5f5',
         display: 'flex',
         flexDirection: 'column',
@@ -38,26 +38,26 @@ function Home() {
         justifyContent: 'center',
         padding: '40px 24px'
       }}>
-        <div style={{ 
-          maxWidth: '600px', 
+        <div style={{
+          maxWidth: '600px',
           width: '100%',
           textAlign: 'center'
         }}>
           {/* Logo and Title */}
           <div style={{ marginBottom: '48px' }}>
-            <img 
-              src={biocypherLogo} 
-              alt="BioCypher" 
-              style={{ 
-                width: '80px', 
+            <img
+              src={biocypherLogo}
+              alt="BioCypher"
+              style={{
+                width: '80px',
                 height: '80px',
                 marginBottom: '24px'
               }}
             />
-            <Title 
-              level={1} 
-              style={{ 
-                margin: 0, 
+            <Title
+              level={1}
+              style={{
+                margin: 0,
                 color: '#1c5aa0',
                 fontSize: '48px',
                 fontWeight: 600,
@@ -81,7 +81,7 @@ function Home() {
                   handleCloseSearch()
                 }
               }}
-              style={{ 
+              style={{
                 fontSize: '16px',
                 borderRadius: '8px'
               }}
@@ -104,7 +104,7 @@ function Home() {
             >
               View All Components
             </Button>
-            
+
             <Button
               type="default"
               size="large"
@@ -124,8 +124,8 @@ function Home() {
       </div>
 
       {searchVisible && (
-        <SearchResults 
-          query={searchQuery} 
+        <SearchResults
+          query={searchQuery}
           onClose={handleCloseSearch}
         />
       )}

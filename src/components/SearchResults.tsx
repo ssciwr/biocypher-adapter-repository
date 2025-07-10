@@ -139,11 +139,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query, onClose }) => {
                                                 </Title>
                                                 <Tag color="blue">v{adapter.version}</Tag>
                                             </div>
-                                            
+
                                             <Text className="adapter-description">
                                                 {adapter.description}
                                             </Text>
-                                            
+
                                             <div className="adapter-meta">
                                                 <div>
                                                     <Text strong>Author: </Text>
@@ -162,7 +162,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query, onClose }) => {
                                                     </div>
                                                 )}
                                             </div>
-                                            
+
                                             {adapter.tags && adapter.tags.length > 0 && (
                                                 <div className="adapter-tags">
                                                     {adapter.tags.slice(0, 3).map(tag => (

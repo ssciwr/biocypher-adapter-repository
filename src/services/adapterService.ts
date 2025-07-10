@@ -156,10 +156,10 @@ const mockAdapters: Adapter[] = [
 export const searchAdapters = async (query: string): Promise<Adapter[]> => {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 500))
-    
+
     const lowercaseQuery = query.toLowerCase()
-    
-    return mockAdapters.filter(adapter => 
+
+    return mockAdapters.filter(adapter =>
         adapter.name.toLowerCase().includes(lowercaseQuery) ||
         adapter.description.toLowerCase().includes(lowercaseQuery) ||
         adapter.author.toLowerCase().includes(lowercaseQuery) ||
@@ -171,21 +171,21 @@ export const searchAdapters = async (query: string): Promise<Adapter[]> => {
 export const getAdapterById = async (id: string): Promise<Adapter | null> => {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 200))
-    
+
     return mockAdapters.find(adapter => adapter.id === id) || null
 }
 
 export const getAllAdapters = async (): Promise<Adapter[]> => {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 300))
-    
+
     return mockAdapters
 }
 
 export const getAdapterDetails = async (adapterId: string): Promise<AdapterDetails | null> => {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 300))
-    
+
     const adapter = mockAdapters.find(a => a.id === adapterId)
     return adapter?.details || null
 }
@@ -199,7 +199,7 @@ export const registerAdapter = async (adapterData: {
 }): Promise<boolean> => {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 1000))
-    
+
     // In production, this would save to MongoDB with draft status
     const newAdapter: Adapter = {
         id: `draft-${Date.now()}`,
@@ -217,10 +217,10 @@ export const registerAdapter = async (adapterData: {
         croissantUrl: adapterData.croissantUrl,
         lastUpdated: new Date()
     }
-    
+
     // Add to mock data (in production, save to database)
     mockAdapters.push(newAdapter)
-    
+
     return true
 }
 
@@ -235,10 +235,10 @@ export const serverActions = {
         // const db = client.db('biocypher-adapters')
         // const collection = db.collection('adapters')
         // return await collection.find({ $text: { $search: query } }).toArray()
-        
+
         return searchAdapters(query)
     },
-    
+
 }
 
 export type { Adapter, AdapterDetails }

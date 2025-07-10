@@ -26,7 +26,7 @@ const Register = () => {
 
             await registerAdapter(adapterData)
             message.success('Adapter registered successfully! It will be reviewed before being published.')
-            
+
             // Redirect to overview page
             navigate('/overview')
         } catch (error) {
@@ -40,14 +40,14 @@ const Register = () => {
     return (
         <div style={{ minHeight: '100vh', background: '#f5f5f5' }}>
             <Header showRegisterButton={false} />
-            
+
             <div style={{ padding: '40px 24px' }}>
                 <div style={{ maxWidth: '600px', margin: '0 auto' }}>
                     <Card>
                         <Title level={2} style={{ textAlign: 'center', marginBottom: '32px' }}>
                             Register Your Adapter
                         </Title>
-                        
+
                         <Text type="secondary" style={{ display: 'block', marginBottom: '24px' }}>
                             Submit your BioCypher adapter for review. Once approved, it will be available in the adapter repository.
                         </Text>
@@ -86,7 +86,7 @@ const Register = () => {
                                         showIcon
                                         style={{ marginBottom: '16px' }}
                                     />
-                                    
+
                                     <Form.Item
                                         label="Croissant File URL"
                                         name="croissantUrl"
@@ -95,15 +95,15 @@ const Register = () => {
                                             { type: 'url', message: 'Please enter a valid URL' }
                                         ]}
                                     >
-                                        <Input 
+                                        <Input
                                             placeholder="https://github.com/username/repository/blob/main/croissant.json"
                                             prefix={<LinkOutlined />}
                                         />
                                     </Form.Item>
-                                    
+
                                     <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-                                        <Button 
-                                            type="link" 
+                                        <Button
+                                            type="link"
                                             onClick={() => setUseFileUpload(true)}
                                             style={{ padding: 0 }}
                                         >
@@ -128,10 +128,10 @@ const Register = () => {
                                             </Button>
                                         </Upload>
                                     </Form.Item>
-                                    
+
                                     <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-                                        <Button 
-                                            type="link" 
+                                        <Button
+                                            type="link"
                                             onClick={() => {
                                                 setUseFileUpload(false)
                                                 form.resetFields(['croissantFile'])

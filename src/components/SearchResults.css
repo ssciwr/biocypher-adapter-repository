@@ -130,15 +130,15 @@
         align-items: stretch;
         gap: 16px;
     }
-    
+
     .search-header h3 {
         text-align: center;
     }
-    
+
     .search-results-body {
         padding: 16px;
     }
-    
+
     .adapter-result-card {
         margin-bottom: 16px;
     }

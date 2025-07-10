@@ -280,19 +280,19 @@
     .adapter-main-content .ant-card-body {
         padding: 20px;
     }
-    
+
     .cookbook-container {
         padding: 12px 16px;
     }
-    
+
     .cookbook-item {
         min-width: 180px;
     }
-    
+
     .cookbook-item-title {
         font-size: 12px;
     }
-    
+
     .cookbook-item-meta .ant-tag {
         font-size: 10px;
     }
@@ -302,4 +302,3 @@
 h5 {
     margin-top: 0px !important; /* Reset default margins */
 }
-

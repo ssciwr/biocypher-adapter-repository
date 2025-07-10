@@ -18,7 +18,7 @@ function Overview() {
       try {
         const data = await getAllAdapters()
         setAdapters(data)
-        
+
         // Fetch GitHub stats for adapters
         const stats = {}
         for (const adapter of data) {
@@ -53,18 +53,18 @@ function Overview() {
 
   const formatDate = (date) => {
     if (!date) return 'Unknown'
-    return new Date(date).toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
+    return new Date(date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
     })
   }
 
   return (
     <div style={{ minHeight: '100vh', background: '#f5f5f5' }}>
       <Header showRegisterButton={true} />
-      
-      <div style={{ 
+
+      <div style={{
         maxWidth: '1100px',
         margin: '0 auto',
         padding: '40px 24px'
@@ -91,7 +91,7 @@ function Overview() {
               <Col xs={24} sm={12} lg={8} xl={6} key={adapter.id}>
                 <Card
                   hoverable
-                  style={{ 
+                  style={{
                     height: '100%',
                     borderRadius: '12px',
                     border: '2px solid #ccc',
@@ -111,9 +111,9 @@ function Overview() {
                     </div>
 
                     <div style={{ flex: 1, marginBottom: '16px' }}>
-                      <Text 
-                        style={{ 
-                          fontSize: '14px', 
+                      <Text
+                        style={{
+                          fontSize: '14px',
                           lineHeight: '1.4',
                           display: '-webkit-box',
                           WebkitLineClamp: 3,
